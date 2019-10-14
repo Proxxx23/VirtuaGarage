@@ -5,7 +5,8 @@
         "symfony/console": "^4.3",
         "symfony/dotenv": "^4.3",
         "symfony/twig-bundle": "^4.3",
-        "twitter/bootstrap": "^4.3"
+        "twitter/bootstrap": "^4.3",
+        "symfony/orm-pack": "^1.0"
 
     },
     "require-dev": {

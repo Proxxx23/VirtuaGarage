@@ -7,6 +7,11 @@ use App\Application\Command\TankCarCommand;
 
 class TankCarRepository implements TankCarRepositoryInterface
 {
+
+    public function __construct(  )
+    {
+
+    }
     /**
      * @param TankCarCommand $tankCarCommand
      *
