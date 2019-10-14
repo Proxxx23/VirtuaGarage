@@ -1,11 +1,11 @@
 <?php
-declare(strict_types=1);
+declare( strict_types=1 );
 
-namespace App\Application\Command;
+namespace App\Domain\Purchase\Command;
 
-use App\Domain\ValueObject\Price;
+use App\Domain\Purchase\Price;
 
-final class TankCarCommand
+class TankCarCommand
 {
     /** @var Price */
     private $price;
@@ -15,12 +15,11 @@ final class TankCarCommand
     private $volume;
 
     /**
-     * TankCarCommand constructor.
      * @param Price $price
      * @param string $registrationNumber
      * @param int $volume
      */
-    public function __construct(Price $price, string $registrationNumber, int $volume)
+    public function __construct( Price $price, string $registrationNumber, int $volume )
     {
         $this->price = $price;
         $this->registrationNumber = $registrationNumber;

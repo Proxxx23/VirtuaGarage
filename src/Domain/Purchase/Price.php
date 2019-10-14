@@ -1,7 +1,7 @@
 <?php
-declare(strict_types=1);
+declare( strict_types=1 );
 
-namespace App\Domain\ValueObject;
+namespace App\Domain\Purchase;
 
 final class Price
 {
@@ -13,13 +13,11 @@ final class Price
     /**
      * @param string $currency
      * @param int $amount
-     * @throws InvalidValueException
      */
-    public function __construct(string $currency, int $amount)
+    public function __construct( string $currency, int $amount )
     {
         $this->currency = $currency; //todo: list of allowed currencies + validate?
         $this->amount = $amount;
-        $this->validate(); //todo: should it stay here or be called from an outside?
     }
 
     /**
@@ -38,10 +36,15 @@ final class Price
         return $this->amount;
     }
 
-    private function validate(): void
+    /**
+     * @throws InvalidValueException
+     */
+    public function isValid(): bool
     {
-        if ($this->amount < 0) {
-            throw new InvalidValueException('Amount cannot be negative.');
+        if ( $this->amount < 0 ) {
+            throw new InvalidValueException( 'Amount cannot be negative.' );
         }
+
+        return true;
     }
 }
