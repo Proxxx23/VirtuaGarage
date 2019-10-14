@@ -3,7 +3,7 @@ declare( strict_types=1 );
 
 namespace App\Infrastructure\Persistence\Database;
 
-use App\Domain\Purchase\Command\TankCarCommand;
+use App\Application\Command\TankCarCommand;
 
 class TankCarRepository implements TankCarRepositoryInterface
 {

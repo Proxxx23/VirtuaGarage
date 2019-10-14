@@ -1,7 +1,7 @@
 <?php
 declare( strict_types=1 );
 
-namespace App\Domain\Purchase\Command;
+namespace App\Application\Command;
 
 use App\Domain\Purchase\Price;
 

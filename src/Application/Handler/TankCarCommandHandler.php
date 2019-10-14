@@ -1,9 +1,9 @@
 <?php
 declare( strict_types=1 );
 
-namespace App\Domain\Purchase\Handler;
+namespace App\Application\Handler;
 
-use App\Domain\Purchase\Command\TankCarCommand;
+use App\Application\Command\TankCarCommand;
 use App\Infrastructure\Persistence\Database\TankCarRepositoryInterface;
 
 final class TankCarCommandHandler
@@ -33,7 +33,8 @@ final class TankCarCommandHandler
             throw new InvalidValueException( 'Gasoline volume cannot be zero or lower.' );
         }
 
-        if ( $this->command->getPrice()->isValid() ) {
+        if ( $this->command->getPrice()
+            ->isValid() ) {
             return $this->repository->addTank( $this->command );
         }
     }

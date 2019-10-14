@@ -3,9 +3,10 @@ declare( strict_types=1 );
 
 namespace App\Tests;
 
-use App\Domain\Purchase\Command\TankCarCommand;
-use App\Domain\Purchase\Handler\InvalidValueException;
-use App\Domain\Purchase\Handler\TankCarCommandHandler;
+use App\Application\Command\TankCarCommand;
+use App\Application\Handler\InvalidValueException;
+use App\Application\Handler\TankCarCommandHandler;
+use App\Infrastructure\Persistence\Database\TankCarRepository;
 use PHPUnit\Framework\TestCase;
 
 class TankCarCommandHandlerTest extends TestCase
@@ -16,13 +17,15 @@ class TankCarCommandHandlerTest extends TestCase
      */
     public function testThrowsWhenValueIsEqualLowerThanZero(): void
     {
-        $stub = $this->createMock( TankCarCommand::class );
-        $stub->method( 'getVolume' )
-            ->willReturn(-1);
+        $mockCommand = $this->createMock( TankCarCommand::class );
+        $mockCommand->method( 'getVolume' )
+            ->willReturn( -1 );
+
+        $stubRepo = $this->createMock( TankCarRepository::class );
 
         $this->expectException( InvalidValueException::class );
         $this->expectErrorMessage( 'Gasoline volume cannot be zero or lower.' );
 
-        ( new TankCarCommandHandler( $stub ) )->handle();
+        ( new TankCarCommandHandler( $mockCommand, $stubRepo ) )->handle();
     }
 }

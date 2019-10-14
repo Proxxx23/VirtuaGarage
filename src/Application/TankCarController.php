@@ -3,8 +3,8 @@ declare( strict_types=1 );
 
 namespace App\Application;
 
-use App\Domain\Purchase\Command\TankCarCommand;
-use App\Domain\Purchase\Handler\TankCarCommandHandler;
+use App\Application\Command\TankCarCommand;
+use App\Application\Handler\TankCarCommandHandler;
 use App\Domain\Purchase\Price;
 use App\Infrastructure\Persistence\Database\TankCarRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,8 +16,8 @@ final class TankCarController
      * @param Request $request
      *
      * @return Response
-     * @throws \App\Domain\Purchase\Handler\InvalidValueException
      * @throws \App\Domain\Purchase\InvalidValueException
+     * @throws Handler\InvalidValueException
      */
     public function tankAction( Request $request ): Response
     {
