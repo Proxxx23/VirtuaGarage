@@ -4,7 +4,7 @@ declare( strict_types=1 );
 namespace App\Tests;
 
 use App\Domain\Purchase\InvalidValueException;
-use App\Domain\Purchase\Price;
+use App\Domain\Purchase\VO;
 use PHPUnit\Framework\TestCase;
 
 class PriceTest extends TestCase
@@ -17,6 +17,6 @@ class PriceTest extends TestCase
         $this->expectException( InvalidValueException::class );
         $this->expectExceptionMessage( 'Amount cannot be negative.' );
 
-        ( new Price( 'PLN', -1 ) )->isValid();
+        ( new VO( 'PLN', -1 ) )->isValid();
     }
 }

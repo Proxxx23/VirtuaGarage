@@ -1,50 +1,17 @@
 <?php
-declare( strict_types=1 );
 
-namespace App\Domain\Purchase;
+namespace Domain\Purchase;
 
-final class Price
+class Price
 {
-    /** @var string */
-    private $currency;
-    /** @var int */
-    private $amount;
-
-    /**
-     * @param string $currency
-     * @param int $amount
-     */
-    public function __construct( string $currency, int $amount )
+    public function __construct($argument1)
     {
-        $this->currency = $currency; //todo: list of allowed currencies + validate?
-        $this->amount = $amount;
+        // TODO: write logic here
     }
 
-    /**
-     * @return string
-     */
-    public function getCurrency(): string
+    public function getAmount()
     {
-        return $this->currency;
-    }
-
-    /**
-     * @return int
-     */
-    public function getAmount(): int
-    {
-        return $this->amount;
-    }
-
-    /**
-     * @throws InvalidValueException
-     */
-    public function isValid(): bool
-    {
-        if ( $this->amount < 0 ) {
-            throw new InvalidValueException( 'Amount cannot be negative.' );
-        }
-
-        return true;
+        return 100;
+        // TODO: write logic here
     }
 }
