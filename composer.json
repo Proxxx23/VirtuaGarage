@@ -1,5 +1,9 @@
 {
     "require": {
+        "ext-apcu": "*",
+        "ext-json": "*",
+        "ext-mcrypt": "*",
+        "ext-pdo_mysql": "*",
         "php": "^7.3",
         "symfony/framework-bundle": "^4.3",
         "symfony/console": "^4.3",

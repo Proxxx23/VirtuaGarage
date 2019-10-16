@@ -1,0 +1,30 @@
+version: '2.0'
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: app.docker
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+  web:
+    build:
+      context: ./
+      dockerfile: web.docker
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    ports:
+      - "8080:80"
+    links:
+      - app
+
+  db:
+    image: mysql:5.7
+    environment:
+      - "MYSQL_DATABASE=virtuagarage"
+      - "MYSQL_USER=admin"
+      - "MYSQL_PASSWORD=123secret!@#"
+      - "MYSQL_ROOT_PASSWORD=secret"
+    ports:
+      - "33061:3306"

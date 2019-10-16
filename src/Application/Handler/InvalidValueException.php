@@ -3,7 +3,9 @@ declare( strict_types=1 );
 
 namespace Application\Handler;
 
-final class InvalidValueException extends \Exception
+use Exception;
+
+final class InvalidValueException extends Exception
 {
 
 }
