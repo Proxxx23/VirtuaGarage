@@ -1,9 +1,9 @@
 <?php
 declare( strict_types=1 );
 
-namespace App\Infrastructure\Persistence\Database;
+namespace Domain\Purchase;
 
-use App\Application\Command\TankCarCommand;
+use Application\Command\TankCarCommand;
 
 interface TankCarRepositoryInterface
 {

@@ -1,9 +1,10 @@
 <?php
 declare( strict_types=1 );
 
-namespace App\Infrastructure\Persistence\Database;
+namespace Infrastructure\Purchase\Persistence\Database;
 
-use App\Application\Command\TankCarCommand;
+use Application\Command\TankCarCommand;
+use Domain\Purchase\TankCarRepositoryInterface;
 
 class TankCarRepository implements TankCarRepositoryInterface
 {

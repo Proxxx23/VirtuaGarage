@@ -1,9 +1,9 @@
 <?php
 declare( strict_types=1 );
 
-namespace App\Application\Command;
+namespace Application\Command;
 
-use App\Domain\Purchase\Price;
+use Domain\Purchase\Price;
 
 class TankCarCommand
 {

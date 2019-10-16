@@ -1,23 +1,23 @@
 <?php
 declare( strict_types=1 );
 
-namespace App\Application\Handler;
+namespace Application\Handler;
 
-use App\Application\Command\TankCarCommand;
-use App\Infrastructure\Persistence\Database\TankCarRepositoryInterface;
+use Application\Command\TankCarCommand;
+use Infrastructure\Purchase\Persistence\Database\TankCarRepository;
 
 final class TankCarCommandHandler
 {
     /** @var TankCarCommand */
     private $command;
-    /** @var TankCarRepositoryInterface */
+    /** @var TankCarRepository */
     private $repository;
 
     /**
      * @param TankCarCommand $command
-     * @param TankCarRepositoryInterface $repository
+     * @param TankCarRepository $repository
      */
-    public function __construct( TankCarCommand $command, TankCarRepositoryInterface $repository )
+    public function __construct( TankCarCommand $command, TankCarRepository $repository )
     {
         $this->command = $command;
         $this->repository = $repository;
@@ -25,7 +25,7 @@ final class TankCarCommandHandler
 
     /**
      * @throws InvalidValueException
-     * @throws \App\Domain\Purchase\InvalidValueException
+     * @throws \Domain\Purchase\InvalidValueException
      */
     public function handle(): bool
     {
@@ -34,7 +34,7 @@ final class TankCarCommandHandler
         }
 
         if ( $this->command->getPrice()
-            ->isValid() ) {
+            ->validate() ) {
             return $this->repository->addTank( $this->command );
         }
     }
