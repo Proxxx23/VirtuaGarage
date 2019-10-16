@@ -3,11 +3,11 @@ declare( strict_types=1 );
 
 namespace App\Application\Command;
 
-use App\Domain\Purchase\VO;
+use App\Domain\Purchase\Price;
 
 class TankCarCommand
 {
-    /** @var VO */
+    /** @var Price */
     private $price;
     /** @var string */
     private $registrationNumber;
@@ -15,11 +15,11 @@ class TankCarCommand
     private $volume;
 
     /**
-     * @param VO $price
+     * @param Price $price
      * @param string $registrationNumber
      * @param int $volume
      */
-    public function __construct( VO $price, string $registrationNumber, int $volume )
+    public function __construct( Price $price, string $registrationNumber, int $volume )
     {
         $this->price = $price;
         $this->registrationNumber = $registrationNumber;
@@ -27,9 +27,9 @@ class TankCarCommand
     }
 
     /**
-     * @return VO
+     * @return Price
      */
-    public function getPrice(): VO
+    public function getPrice(): Price
     {
         return $this->price;
     }
