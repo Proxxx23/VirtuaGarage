@@ -17,6 +17,6 @@ class PriceTest extends TestCase
         $this->expectException( InvalidValueException::class );
         $this->expectExceptionMessage( 'Amount cannot be negative.' );
 
-        ( new Price( 'PLN', -1 ) )->validate();
+        ( new Price( -1, 'PLN' ) )->validate();
     }
 }

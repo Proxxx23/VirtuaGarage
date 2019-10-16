@@ -5,47 +5,50 @@ namespace Domain\Purchase;
 
 final class Price
 {
-    /** @var string */
-    private $currency;
+    private const ALLOWED_CURRENCIES = [
+        'PLN',
+    ];
+
     /** @var int */
     private $amount;
+    /** @var string */
+    private $currency;
 
     /**
-     * @param string $currency
      * @param int $amount
+     * @param string $currency
      *
      * @throws InvalidValueException
      */
-    public function __construct( string $currency, int $amount )
+    public function __construct( int $amount, string $currency )
     {
-        $this->currency = $currency; //todo: list of allowed currencies + validate?
         $this->amount = $amount;
+        $this->currency = $currency;
         $this->validate();
     }
 
-    /**
-     * @return string
-     */
+    public function getAmount(): int
+    {
+        return $this->amount;
+    }
+
     public function getCurrency(): string
     {
         return $this->currency;
     }
 
     /**
-     * @return int
-     */
-    public function getAmount(): int
-    {
-        return $this->amount;
-    }
-
-    /**
+     * @return bool
      * @throws InvalidValueException
      */
     public function validate(): bool
     {
         if ( $this->amount < 0 ) {
             throw new InvalidValueException( 'Amount cannot be negative.' );
+        }
+
+        if ( !\in_array( $this->currency, self::ALLOWED_CURRENCIES, true ) ) {
+            throw new InvalidValueException( 'You cannot pay using JPY currency.' );
         }
 
         return true;
