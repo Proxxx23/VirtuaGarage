@@ -1,13 +1,13 @@
 <?php
 declare( strict_types=1 );
 
-namespace Application;
+namespace App\Application;
 
-use Application\Command\TankCarCommand;
-use Application\Handler\TankCarCommandHandler;
-use Domain\Purchase\InvalidValueException;
-use Domain\Purchase\Price;
-use Infrastructure\Purchase\Persistence\Database\TankCarRepository;
+use App\Application\Command\TankCarCommand;
+use App\Application\Handler\TankCarCommandHandler;
+use App\Domain\Purchase\InvalidValueException;
+use App\Domain\Purchase\Price;
+use App\Infrastructure\Purchase\Persistence\Database\TankCarRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 

@@ -1,7 +1,7 @@
 <?php
 declare( strict_types=1 );
 
-namespace Application\Handler;
+namespace App\Application\Handler;
 
 use Exception;
 

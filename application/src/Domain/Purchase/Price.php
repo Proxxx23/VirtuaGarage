@@ -1,7 +1,7 @@
 <?php
 declare( strict_types=1 );
 
-namespace Domain\Purchase;
+namespace App\Domain\Purchase;
 
 final class Price
 {

@@ -3,17 +3,16 @@ declare( strict_types=1 );
 
 namespace App\Tests;
 
-use Application\Command\TankCarCommand;
-use Application\Handler\InvalidValueException;
-use Application\Handler\TankCarCommandHandler;
-use Infrastructure\Persistence\Database\TankCarRepository;
+use App\Application\Command\TankCarCommand;
+use App\Application\Handler\InvalidValueException;
+use App\Application\Handler\TankCarCommandHandler;
+use App\Infrastructure\Purchase\Persistence\Database\TankCarRepository;
 use PHPUnit\Framework\TestCase;
 
 class TankCarCommandHandlerTest extends TestCase
 {
     /**
      * @throws InvalidValueException
-     * @throws \Domain\Purchase\InvalidValueException
      */
     public function testThrowsWhenValueIsEqualLowerThanZero(): void
     {

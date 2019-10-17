@@ -1,10 +1,10 @@
 <?php
 declare( strict_types=1 );
 
-namespace Application\Handler;
+namespace App\Application\Handler;
 
-use Application\Command\TankCarCommand;
-use Infrastructure\Purchase\Persistence\Database\TankCarRepository;
+use App\Application\Command\TankCarCommand;
+use App\Infrastructure\Purchase\Persistence\Database\TankCarRepository;
 
 final class TankCarCommandHandler
 {
@@ -24,8 +24,8 @@ final class TankCarCommandHandler
     }
 
     /**
+     * @return bool
      * @throws InvalidValueException
-     * @throws \Domain\Purchase\InvalidValueException
      */
     public function handle(): bool
     {

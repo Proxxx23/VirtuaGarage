@@ -1,0 +1,19 @@
+default:
+    autoload:
+        '': '%paths.base%/'
+    suites:
+        default:
+            paths:
+                - '%paths.base%/tests/features/'
+            contexts:
+                [
+                    tests\features\bootstrap\HooksContext: {kernel: '@kernel'},
+                    tests\features\bootstrap\RequestResponseContext: {kernel: '@kernel'},
+                    tests\features\bootstrap\DataContext: {kernel: '@kernel'}
+                ]
+
+    extensions:
+        Behat\Symfony2Extension:
+            kernel:
+                bootstrap: tests/features/bootstrap/bootstrap.php
+                class: Engine\Kernel

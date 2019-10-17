@@ -3,8 +3,8 @@ declare( strict_types=1 );
 
 namespace App\Tests;
 
-use Domain\Purchase\InvalidValueException;
-use Domain\Purchase\Price;
+use App\Domain\Purchase\InvalidValueException;
+use App\Domain\Purchase\Price;
 use PHPUnit\Framework\TestCase;
 
 class PriceTest extends TestCase
