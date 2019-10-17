@@ -427,6 +427,23 @@
     "symfony/translation-contracts": {
         "version": "v1.1.5"
     },
+    "symfony/twig-bridge": {
+        "version": "v4.3.5"
+    },
+    "symfony/twig-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "7e5911186d596214c14dd28305485a3c143ee746"
+        },
+        "files": [
+            "config/packages/twig.yaml",
+            "config/routes/dev/twig.yaml",
+            "templates/base.html.twig"
+        ]
+    },
     "symfony/var-exporter": {
         "version": "v4.3.1"
     },
@@ -435,6 +452,9 @@
     },
     "theseer/tokenizer": {
         "version": "1.1.3"
+    },
+    "twig/twig": {
+        "version": "v2.12.1"
     },
     "webmozart/assert": {
         "version": "1.4.0"

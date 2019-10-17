@@ -15,14 +15,16 @@
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "4.3.*",
         "symfony/orm-pack": "^1.0",
-        "symfony/yaml": "4.3.*"
+        "symfony/yaml": "4.3.*",
+        "symfony/twig-bundle": "^4.3"
     },
     "require-dev": {
         "behat/behat": "^3.5",
         "behat/symfony2-extension": "^2.1",
         "doctrine/doctrine-fixtures-bundle": "^3.2",
         "phpspec/phpspec": "^6.0",
-        "phpunit/phpunit": "^8.4"
+        "phpunit/phpunit": "^8.4",
+        "symfony/debug": "^4.3"
     },
     "config": {
         "preferred-install": {

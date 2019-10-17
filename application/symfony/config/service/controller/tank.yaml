@@ -1,0 +1,4 @@
+services:
+  app.user_interface.controller.tank:
+    public: true
+    class: App\UserInterface\Symfony\Controller\TankController

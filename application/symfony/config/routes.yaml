@@ -1,2 +1,4 @@
-main:
-    resource: "../../src/UserInterface/Symfony/Resources/config/routing/app.yaml"
+default:
+    path: /tank
+    controller: app.user_interface.controller.tank::execute
+    methods: [GET]
