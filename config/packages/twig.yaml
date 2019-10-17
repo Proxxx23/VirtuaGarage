@@ -1,0 +1,10 @@
+twig:
+  default_path: '%kernel.project_dir%/templates'
+  debug: '%kernel.debug%'
+  strict_variables: '%kernel.debug%'
+  globals:
+    contest_site: !php/const CONTEST_SITE
+    contest_site_name: !php/const CONTEST_SITE_NAME
+    contest_site_host: !php/const CONTEST_SITE_HOST
+    ganalytics_site_id: !php/const GANALYTICS_SITE_ID
+    cxense_site_id: !php/const CXENSE_SITE_ID

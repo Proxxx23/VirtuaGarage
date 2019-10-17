@@ -1,30 +1,30 @@
-version: '2.0'
+version: '3.7'
 services:
-  app:
-    build:
-      context: ./
-      dockerfile: app.docker
-    working_dir: /var/www
-    volumes:
-      - ./:/var/www
-  web:
-    build:
-      context: ./
-      dockerfile: web.docker
-    working_dir: /var/www
-    volumes:
-      - ./:/var/www
+  mysql:
+    image: mysql
+    command: ["--default-authentication-plugin=mysql_native_password"]
     ports:
-      - "8080:80"
-    links:
-      - app
-
-  db:
-    image: mysql:5.7
+      - "3306:3306"
     environment:
-      - "MYSQL_DATABASE=virtuagarage"
-      - "MYSQL_USER=admin"
-      - "MYSQL_PASSWORD=123secret!@#"
-      - "MYSQL_ROOT_PASSWORD=secret"
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: app
+      MYSQL_USER: app
+      MYSQL_PASSWORD: app
+  php-fpm:
+    build: dockers/php-fpm
     ports:
-      - "33061:3306"
+      - "9000:9001"
+    volumes:
+      - ./src:/var/www/src
+    links:
+      - mysql
+    extra_hosts:
+      - "docker-host.localhost:127.0.0.1"
+  nginx:
+    build: dockers/nginx
+    ports:
+      - "80:80"
+    links:
+      - php-fpm
+    volumes:
+      - ./src:/var/www/src
