@@ -1,0 +1,9 @@
+imports:
+    - { resource: service/controller/default.yaml }
+
+parameters:
+
+services:
+    _defaults:
+        autowire: false
+        autoconfigure: false

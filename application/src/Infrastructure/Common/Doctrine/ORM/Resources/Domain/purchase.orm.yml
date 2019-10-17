@@ -1,0 +1,21 @@
+App\Domain\Purchase:
+  type: entity
+  table: purchase
+  id:
+    id:
+      type: int
+      varchar: 255
+      generator: { strategy: NONE }
+  fields:
+    registrationNumber:
+      type: string
+      length: 50
+      nullable: false
+    amount:
+      type: deciman
+      length: 100
+      nullable: false
+    currency:
+      type: string
+      length: 10
+      nullable: false

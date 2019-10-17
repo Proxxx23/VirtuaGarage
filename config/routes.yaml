@@ -1,3 +1,0 @@
-tank_add:
-  path: /tank/tank
-  controller: Application\TankController::tankAction

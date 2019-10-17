@@ -1,5 +1,0 @@
-nelmio_cors:
-    paths:
-        '^/last-photos/':
-            allow_origin: ['*']
-            allow_methods: ['GET']
