@@ -48,7 +48,7 @@ final class Price
         }
 
         if ( !\in_array( $this->currency, self::ALLOWED_CURRENCIES, true ) ) {
-            throw new InvalidValueException( 'You cannot pay using JPY currency.' );
+            throw new InvalidValueException( 'You cannot pay using ' . $this->currency . ' currency.' );
         }
 
         return true;

@@ -10,7 +10,7 @@ interface TankCarRepositoryInterface
     /**
      * @param TankCarCommand $tankCarCommand
      *
-     * @return bool
+     * @throws \RuntimeException
      */
-    public function addTank( TankCarCommand $tankCarCommand ): bool;
+    public function add( TankCarCommand $tankCarCommand ): void;
 }

@@ -11,9 +11,6 @@ use PHPUnit\Framework\TestCase;
 
 class TankCarCommandHandlerTest extends TestCase
 {
-    /**
-     * @throws InvalidValueException
-     */
     public function testThrowsWhenValueIsEqualLowerThanZero(): void
     {
         $mockCommand = $this->createMock( TankCarCommand::class );
@@ -25,7 +22,6 @@ class TankCarCommandHandlerTest extends TestCase
         $this->expectException( InvalidValueException::class );
         $this->expectErrorMessage( 'Gasoline volume cannot be zero or lower.' );
 
-        /** @noinspection PhpParamsInspection */
         ( new TankCarCommandHandler( $mockCommand, $stubRepo ) )->handle();
     }
 }

@@ -6,10 +6,16 @@ namespace App\UserInterface\Symfony\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-final class TankController extends AbstractController
+final class MainController extends AbstractController
 {
-    public function execute(): Response
+    private
+
+    public function __construct()
     {
-        return $this->render('base.html.twig', []);
+    }
+
+    public function show(): Response
+    {
+        return $this->render( 'base.html.twig', [] );
     }
 }

@@ -1,4 +1,16 @@
 default:
+    path: /
+    controller: App\UserInterface\Symfony\Controller\MainController::show
+    methods: [GET]
+tank_car:
     path: /tank
-    controller: app.user_interface.controller.tank::execute
+    controller: App\UserInterface\Symfony\Controller\FuelController::tank
+    methods: [GET]
+add_car:
+    path: /car/add
+    controller: App\UserInterface\Symfony\Controller\CarController::add
+    methods: [GET]
+remove_car:
+    path: /car/remove
+    controller: App\UserInterface\Symfony\Controller\CarController:remove
     methods: [GET]

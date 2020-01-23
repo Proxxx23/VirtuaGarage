@@ -5,5 +5,4 @@ namespace App\Domain\Purchase;
 
 final class InvalidValueException extends \Exception
 {
-
 }

@@ -6,20 +6,10 @@ namespace App\Infrastructure\Purchase\Persistence\Database;
 use App\Application\Command\TankCarCommand;
 use App\Domain\Purchase\TankCarRepositoryInterface;
 
-class TankCarRepository implements TankCarRepositoryInterface
+final class TankCarRepository implements TankCarRepositoryInterface
 {
-
-    public function __construct(  )
+    public function add( TankCarCommand $tankCarCommand ): void
     {
-
-    }
-    /**
-     * @param TankCarCommand $tankCarCommand
-     *
-     * @return bool
-     */
-    public function addTank( TankCarCommand $tankCarCommand ): bool
-    {
-        // TODO: Implement addTank() method.
+        throw new \RuntimeException( 'Something went wrong' );
     }
 }

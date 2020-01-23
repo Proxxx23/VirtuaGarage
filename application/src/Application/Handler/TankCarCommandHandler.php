@@ -24,18 +24,17 @@ final class TankCarCommandHandler
     }
 
     /**
-     * @return bool
      * @throws InvalidValueException
+     * @throws \App\Domain\Purchase\InvalidValueException
      */
-    public function handle(): bool
+    public function handle(): void
     {
         if ( $this->command->getVolume() < 0 ) {
             throw new InvalidValueException( 'Gasoline volume cannot be zero or lower.' );
         }
 
-        if ( $this->command->getPrice()
-            ->validate() ) {
-            return $this->repository->addTank( $this->command );
+        if ( $this->command->getPrice()->validate() ) {
+            $this->repository->add( $this->command );
         }
     }
 }
