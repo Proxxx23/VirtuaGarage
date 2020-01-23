@@ -1,4 +1,4 @@
-FROM php:7.3.6-fpm
+FROM php:7.4.1-fpm
 
 RUN mkdir -p /var/www/scripts
 COPY scripts/ /var/www/scripts/php
