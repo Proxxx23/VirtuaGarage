@@ -11,8 +11,8 @@ final class baseMigration extends AbstractMigration
 {
     private const DESCRIPTION = 'VirtuaGarage';
 
-    private const CREATE_CARS_TABLE = '
-        CREATE TABLE cars (
+    private const CREATE_CAR_TABLE = '
+        CREATE TABLE car(
             id INT(11) NOT NULL,
             owner_id INT(11) NOT NULL,
             brand VARCHAR(100) NOT NULL,
@@ -24,8 +24,8 @@ final class baseMigration extends AbstractMigration
         COLLATE utf8mb4_unicode_ci ENGINE = InnoDB
     ';
 
-    private const CREATE_USERS_TABLE = '
-        CREATE TABLE users(
+    private const CREATE_USER_TABLE = '
+        CREATE TABLE user(
             id INT(11) NOT NULL,
             username VARCHAR(100) NOT NULL,
             firstname VARCHAR(100) NOT NULL,
@@ -36,8 +36,8 @@ final class baseMigration extends AbstractMigration
         COLLATE utf8mb4_unicode_ci ENGINE = InnoDB
     ';
 
-    private const REMOVE_CARS_TABLE_SQL = 'DROP TABLE cars';
-    private const REMOVE_USERS_TABLE_SQL = 'DROP TABLE users';
+    private const REMOVE_CARS_TABLE_SQL = 'DROP TABLE car';
+    private const REMOVE_USERS_TABLE_SQL = 'DROP TABLE user';
 
     public function getDescription(): string
     {
@@ -51,8 +51,8 @@ final class baseMigration extends AbstractMigration
                 ->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.'
         );
 
-        $this->addSql( self::CREATE_USERS_TABLE );
-        $this->addSql( self::CREATE_CARS_TABLE );
+        $this->addSql( self::CREATE_USER_TABLE );
+        $this->addSql( self::CREATE_CAR_TABLE );
     }
 
     public function down( Schema $schema ): void

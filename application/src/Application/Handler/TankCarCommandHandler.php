@@ -4,37 +4,31 @@ declare( strict_types=1 );
 namespace App\Application\Handler;
 
 use App\Application\Command\TankCarCommand;
-use App\Infrastructure\Purchase\Persistence\Database\TankCarRepository;
+use App\Application\Exception\InvalidValueException;
+use App\Infrastructure\Purchase\Database\TankCarRepository;
 
 final class TankCarCommandHandler
 {
-    /** @var TankCarCommand */
-    private $command;
-    /** @var TankCarRepository */
-    private $repository;
+    private TankCarCommand $tankCarCommand;
+    private TankCarRepository $tankCarRepository;
 
-    /**
-     * @param TankCarCommand $command
-     * @param TankCarRepository $repository
-     */
     public function __construct( TankCarCommand $command, TankCarRepository $repository )
     {
-        $this->command = $command;
-        $this->repository = $repository;
+        $this->tankCarCommand = $command;
+        $this->tankCarRepository = $repository;
     }
 
     /**
      * @throws InvalidValueException
-     * @throws \App\Domain\Purchase\InvalidValueException
      */
     public function handle(): void
     {
-        if ( $this->command->getVolume() < 0 ) {
+        if ( $this->tankCarCommand->getVolume() < 0 ) {
             throw new InvalidValueException( 'Gasoline volume cannot be zero or lower.' );
         }
 
-        if ( $this->command->getPrice()->validate() ) {
-            $this->repository->add( $this->command );
+        if ( $this->tankCarCommand->getPrice()->validate() ) {
+            $this->tankCarRepository->add( $this->tankCarCommand );
         }
     }
 }

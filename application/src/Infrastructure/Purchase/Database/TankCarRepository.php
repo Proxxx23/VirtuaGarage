@@ -1,7 +1,7 @@
 <?php
 declare( strict_types=1 );
 
-namespace App\Infrastructure\Purchase\Persistence\Database;
+namespace App\Infrastructure\Purchase\Database;
 
 use App\Application\Command\TankCarCommand;
 use App\Domain\Purchase\TankCarRepositoryInterface;

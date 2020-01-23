@@ -5,7 +5,7 @@ namespace App\Application\Entity;
 
 use DateTimeImmutable;
 
-final class Cars
+final class Car
 {
     private int $id;
     private int $ownerId;

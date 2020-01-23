@@ -7,12 +7,11 @@ final class Price
 {
     private const ALLOWED_CURRENCIES = [
         'PLN',
+        'EUR',
     ];
 
-    /** @var int */
-    private $amount;
-    /** @var string */
-    private $currency;
+    private int $amount;
+    private string $currency;
 
     /**
      * @param int $amount

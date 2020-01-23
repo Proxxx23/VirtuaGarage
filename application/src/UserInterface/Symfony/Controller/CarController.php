@@ -11,11 +11,11 @@ final class CarController extends AbstractController
 {
     public function addVehicle( Request $request ): Response
     {
-        $this->render()
+        return $this->render('', []);
     }
 
     public function removeVehicle( Request $request ): Response
     {
-        $this->render()
+        return $this->render('', []);
     }
 }

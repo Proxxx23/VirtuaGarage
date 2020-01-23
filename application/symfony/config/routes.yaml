@@ -1,7 +1,9 @@
-default:
-    path: /
+main:
+    path: /list/{userId}
     controller: App\UserInterface\Symfony\Controller\MainController::show
     methods: [GET]
+    requirements:
+        userId: '\d+'
 tank_car:
     path: /tank
     controller: App\UserInterface\Symfony\Controller\FuelController::tank

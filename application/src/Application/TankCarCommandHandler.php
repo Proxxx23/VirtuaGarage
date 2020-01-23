@@ -16,6 +16,11 @@ final class TankCarCommandHandler
         $this->tankCarRepository = $tankCarRepository;
     }
 
+    /**
+     * @param TankCarCommand $tankCarCommand
+     *
+     * @throws HandlerException
+     */
     public function handle( TankCarCommand $tankCarCommand ): void
     {
         try {
