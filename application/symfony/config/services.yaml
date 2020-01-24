@@ -8,5 +8,16 @@ parameters:
 
 services:
     _defaults:
-        autowire: false
-        autoconfigure: false
+        autowire: true
+        autoconfigure: true
+        public: true
+    App\:
+        resource: '../../src/'
+        exclude: '../../src/{Application/Command,Domain}'
+    App\Domain\Purchase\TankCarRepositoryInterface: '@App\Infrastructure\Purchase\Database\TankCarRepository'
+#    App\Infrastructure\:
+#        resource: '../../src/Infrastructure'
+#    App\Application\Query\:
+#        resource: '../../src/Application/Query'
+#    App\Application\Query\CarQueryInterface: 'App\Infrastructure\Query\CarQuery'
+#    App\Application\Query\UserQueryInterface: 'App\Infrastructure\Query\UserQuery'

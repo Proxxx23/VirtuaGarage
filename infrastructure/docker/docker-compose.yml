@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 services:
     nginx:
         build:
@@ -12,11 +12,8 @@ services:
         container_name: infrastructure_nginx
 
     php:
-        environment:
-            APP_ENV: $APP_ENV
-            DATABASE_URL: $DATABASE_URL
-            DATABASE_URL_TEST: $DATABASE_URL_TEST
-            GITHUB_OAUTH_TOKEN: $GITHUB_OAUTH_TOKEN
+        env_file:
+            - ./../../.env
         build:
             context: php
         expose:
@@ -29,9 +26,11 @@ services:
 
     mysql:
         environment:
-            MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+            MYSQL_ROOT_PASSWORD: adJLJLdsa
         build:
             context: mysql
         expose:
           - 3306
+        ports:
+          - 9999:3306
         container_name: infrastructure_mysql

@@ -7,7 +7,7 @@ namespace migrations;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
-final class baseMigration extends AbstractMigration
+final class Version20190623135312 extends AbstractMigration
 {
     private const DESCRIPTION = 'VirtuaGarage';
 
@@ -17,7 +17,7 @@ final class baseMigration extends AbstractMigration
             owner_id INT(11) NOT NULL,
             brand VARCHAR(100) NOT NULL,
             model VARCHAR(100) NOT NULL,
-            production_date DATE(100) NOT NULL,
+            production_date DATE NOT NULL,
             PRIMARY KEY(id)
         )
         DEFAULT CHARACTER SET utf8mb4
