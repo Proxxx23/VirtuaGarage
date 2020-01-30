@@ -57,7 +57,7 @@
     <h3>Car list</h3>
     <ul>
       {% for car in cars %}
-        <li>{{ car.brand }} | {{ car.model }} | {{ car.productionDate.format('Y') }}</li>
+        <li>{{ car.getBrand() }} | {{ car.getModel() }} | {{ car.getProductionYear() }}</li>
       {% endfor %}
     </ul>
   </main>

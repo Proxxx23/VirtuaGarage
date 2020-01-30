@@ -3,9 +3,9 @@ declare( strict_types=1 );
 
 namespace spec\Domain\Purchase;
 
-use Domain\Purchase\InvalidValueException;
+use App\Domain\Purchase\InvalidValueException;
 use PhpSpec\ObjectBehavior;
-
+//todo: make specs
 class PriceSpec extends ObjectBehavior
 {
     public function it_should_return_amount(): void

@@ -22,6 +22,6 @@ class TankCarCommandHandlerTest extends TestCase
         $this->expectException( InvalidValueException::class );
         $this->expectErrorMessage( 'Gasoline volume cannot be zero or lower.' );
 
-        ( new TankCarCommandHandler( $tankCarCommand, $tankCarRepository ) )->handle();
+        ( new TankCarCommandHandler( $tankCarRepository ) )->handle( $tankCarCommand );
     }
 }
