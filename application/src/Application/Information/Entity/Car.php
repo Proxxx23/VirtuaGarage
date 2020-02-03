@@ -1,7 +1,7 @@
 <?php
 declare( strict_types=1 );
 
-namespace App\Application\Entity;
+namespace App\Application\Information\Entity;
 
 use DateTime;
 
@@ -13,7 +13,16 @@ final class Car
     private string $model;
     private string $productionYear;
 
-    //todo: in domain + mapping
+    /**
+     * todo: entity mapping via ORM
+     * @param string $id
+     * @param string $ownerId
+     * @param string $brand
+     * @param string $model
+     * @param string $productionDate
+     *
+     * @throws \Exception
+     */
     private function __construct(
         string $id,
         string $ownerId,
@@ -28,6 +37,12 @@ final class Car
         $this->productionYear = ( new DateTime( $productionDate ) )->format( 'y' );
     }
 
+    /**
+     * @param object $data
+     *
+     * @return static
+     * @throws \Exception
+     */
     public static function fromDatabaseObject( object $data ): self
     {
         return new self( $data->id, $data->owner_id, $data->brand, $data->model, $data->production_date );

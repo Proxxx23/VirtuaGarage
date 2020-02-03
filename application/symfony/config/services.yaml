@@ -13,5 +13,6 @@ services:
         public: true
     App\:
         resource: '../../src/'
-        exclude: '../../src/{Application/Command,Domain}'
+        exclude: '../../src/{Application/Command,Domain,Infrastructure/Information/Query}'
     App\Domain\Purchase\TankCarRepositoryInterface: '@App\Infrastructure\Purchase\Database\TankCarRepository'
+    App\Domain\Information\CarQueryRepositoryInterface: '@App\Infrastructure\Information\Repository\CarQueryRepository'
