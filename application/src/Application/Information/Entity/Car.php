@@ -34,7 +34,7 @@ final class Car
         $this->ownerId = $ownerId;
         $this->brand = $brand;
         $this->model = $model;
-        $this->productionYear = ( new DateTime( $productionDate ) )->format( 'y' );
+        $this->productionYear = ( new DateTime( $productionDate ) )->format( 'Y' );
     }
 
     /**
@@ -43,19 +43,9 @@ final class Car
      * @return static
      * @throws \Exception
      */
-    public static function fromDatabaseObject( object $data ): self
+    public static function fromDBObject( object $data ): self
     {
         return new self( $data->id, $data->owner_id, $data->brand, $data->model, $data->production_date );
-    }
-
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    public function getOwnerId(): string
-    {
-        return $this->ownerId;
     }
 
     public function getBrand(): string

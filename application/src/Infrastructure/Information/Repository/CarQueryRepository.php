@@ -4,6 +4,7 @@ declare( strict_types=1 );
 namespace App\Infrastructure\Information\Repository;
 
 use App\Application\Information\Entity\Car;
+use App\Application\Information\Entity\CarCollection;
 use App\Domain\Information\CarQueryRepositoryInterface;
 use App\Infrastructure\Information\Query\CarQuery;
 use Doctrine\DBAL\Connection;
@@ -21,14 +22,19 @@ final class CarQueryRepository implements CarQueryRepositoryInterface
     /**
      * @param CarQuery $carQuery
      *
-     * @return Car
+     * @return CarCollection
      * @throws \Doctrine\DBAL\DBALException | \Exception
      */
-    public function fetchByOwnerId( CarQuery $carQuery ): Car
+    public function fetchByOwnerId( CarQuery $carQuery ): CarCollection
     {
         $data = $this->db->query( 'SELECT * FROM car WHERE owner_id = ' . $carQuery->getOwnerId() );
-        $result = $data->fetchAll( FetchMode::STANDARD_OBJECT );
+        $results = $data->fetchAll( FetchMode::STANDARD_OBJECT );
 
-        return Car::fromDatabaseObject( $result[0] );
+        $carCollection = new CarCollection();
+        foreach ( $results as $result ) {
+            $carCollection->add( Car::fromDBObject( $result ) );
+        }
+
+        return $carCollection;
     }
 }
