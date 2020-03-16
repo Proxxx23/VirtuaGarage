@@ -16,9 +16,6 @@ final class TankCarCommandHandler
         $this->tankCarRepository = $repository;
     }
 
-    /**
-     * @param TankCarCommand $command
-     */
     public function handle( TankCarCommand $command ): void
     {
         if ( $command->getVolume() < 0 ) {

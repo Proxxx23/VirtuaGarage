@@ -5,14 +5,21 @@ main:
     requirements:
         userId: '\d+'
 tank_car:
-    path: /tank
+    path: /tank/{carId}
     controller: App\UserInterface\Symfony\Controller\FuelController::tank
     methods: [GET]
+    requirements:
+        carId: '\d+'
 add_car:
-    path: /car/add
+    path: /car/add/{userId}
     controller: App\UserInterface\Symfony\Controller\CarController::add
     methods: [GET]
+    requirements:
+        userId: '\d+'
 remove_car:
-    path: /car/remove
+    path: /car/remove/{userId}/{carId}
     controller: App\UserInterface\Symfony\Controller\CarController:remove
     methods: [GET]
+    requirements:
+        carId: '\d+'
+        userId: '\d+'

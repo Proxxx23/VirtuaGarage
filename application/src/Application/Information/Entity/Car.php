@@ -48,6 +48,16 @@ final class Car
         return new self( $data->id, $data->owner_id, $data->brand, $data->model, $data->production_date );
     }
 
+    public function getId(): string
+    {
+        return $this->id;
+    }
+
+    public function getOwnerId(): string
+    {
+        return $this->ownerId;
+    }
+
     public function getBrand(): string
     {
         return $this->brand;

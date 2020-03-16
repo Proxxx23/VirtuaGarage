@@ -3,7 +3,6 @@ declare( strict_types=1 );
 
 namespace App\UserInterface\Symfony\Controller;
 
-use App\Application\Query\UserQueryInterface;
 use App\Domain\Information\CarQueryRepositoryInterface;
 use App\Infrastructure\Information\Query\CarQuery;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

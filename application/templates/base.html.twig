@@ -49,15 +49,16 @@
     <p class="lead">You don't need to buy a garage, to have a garage. Simple?</p>
     <p class="lead"><img src=" {{ asset('build/black-guy.jpg') }} "></p>
     <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary">Add car</a>
-      <a href="#" class="btn btn-lg btn-secondary">Show statistics</a>
-      <a href="#" class="btn btn-lg btn-secondary">Calculate costs</a>
+      <a href="/car/add/1" class="btn btn-lg btn-secondary">Add car</a>
+      <a href="/statistics" class="btn btn-lg btn-secondary">Show statistics</a>
+      <a href="/calculate/costs" class="btn btn-lg btn-secondary">Calculate costs</a>
     </p>
 
     <h3>In your garage you have</h3>
     <ul>
       {% for car in cars %}
-        <li>{{ car.getBrand() }} | {{ car.getModel() }} | {{ car.getProductionYear() }} | <a href="">TANK</a>|<a href="">EDIT</a>|<a href="">REMOVE</a></li>
+        {% set carId = car.getId() %}
+        <li>{{ car.getBrand() }} | {{ car.getModel() }} | {{ car.getProductionYear() }} | <a href="/tank/{{ carId }}">TANK</a> | <a href="/car/edit/{{ carId }}">EDIT</a> | <a href="/car/remove/{{ car.getOwnerId() }}/{{ carId }}">REMOVE</a></li>
       {% endfor %}
     </ul>
   </main>
